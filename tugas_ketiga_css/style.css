@@ -1,0 +1,631 @@
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    /* Main Colors */
+    --primary: #38bdf8;          /* Sky Blue */
+    --primary-dark: #0284c7;     /* Deep Sky Blue */
+    --secondary: #4ade80;        /* Leaf Green */
+    --secondary-dark: #16a34a;   /* Deep Leaf Green */
+
+    /* Background */
+    --background: #f0f9ff;       /* Very Light Sky */
+    --surface: #ffffff;          /* White */
+    --surface-light: #e0f2fe;    /* Light Sky */
+
+    /* Text */
+    --text: #164e63;             /* Deep Cyan */
+    --text-secondary: #475569;   /* Slate */
+    --text-muted: #64748b;
+
+    /* Border */
+    --border: #bae6fd;
+
+    /* Status */
+    --success: #22c55e;
+    --danger: #ef4444;
+
+    /* Others */
+    --radius: 14px;
+    --shadow: 0 8px 25px rgba(14, 165, 233, 0.12);
+
+    --max-width: 1100px;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--background);
+    color: var(--text);
+
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 5%;
+
+    background-color: var(--border);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    list-style: none;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+nav form {
+    display: flex;
+    gap: 8px;
+}
+
+nav input {
+    width: 160px;
+
+    padding: 8px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    outline: none;
+
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+nav input:focus {
+    border-color: var(--primary);
+}
+
+nav button {
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--primary);
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+nav button:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    display: grid;
+    gap: 100px;
+
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
+
+    padding-top: 130px;
+    padding-bottom: 80px;
+}
+
+main > div {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+#hero {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+
+    align-items: center;
+
+    min-height: 75vh;
+}
+
+#hero img {
+    grid-column: 2;
+
+    width: 100%;
+    max-width: 300px;
+
+    justify-self: center;
+}
+
+#hero h1 {
+    max-width: 800px;
+
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+#hero h2 {
+    margin-bottom: 20px;
+
+    color: var(--primary);
+    font-size: clamp(20px, 3vw, 30px);
+}
+
+#hero p {
+    max-width: 750px;
+
+    color: var(--text-secondary);
+
+    font-size: 18px;
+}
+
+#hero b,
+#hero strong {
+    color: var(--text);
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+#about > h1,
+#project > h1,
+#contact > h1 {
+    margin-bottom: 30px;
+
+    font-size: 38px;
+}
+
+#about > h1::after,
+#project > h1::after,
+#contact > h1::after {
+    content: "";
+
+    display: block;
+
+    width: 50px;
+    height: 4px;
+
+    margin-top: 8px;
+
+    border-radius: 10px;
+
+    background-color: var(--primary);
+}
+
+
+/* =========================
+   ABOUT / EDUCATION
+========================= */
+
+#education {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+#education > div {
+    padding: 28px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s ease;
+}
+
+#education > div:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+#education h2 {
+    margin-bottom: 15px;
+}
+
+#education img {
+    width: 80px;
+    height: 80px;
+
+    object-fit: contain;
+
+    margin-bottom: 10px;
+}
+
+#education p {
+    color: var(--text-secondary);
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+#experience {
+    overflow-x: auto;
+}
+
+#experience table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background-color: var(--surface);
+
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+#experience th,
+#experience td {
+    padding: 18px;
+
+    text-align: left;
+    vertical-align: top;
+
+    border-bottom: 1px solid var(--border);
+}
+
+#experience th {
+    background-color: var(--surface-light);
+
+    color: var(--text);
+
+    font-size: 14px;
+}
+
+#experience td {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+#experience tbody tr {
+    transition: 0.2s ease;
+}
+
+#experience tbody tr:hover {
+    background-color: rgba(99, 102, 241, 0.08);
+}
+
+#experience td:first-child {
+    color: var(--text);
+    font-weight: 600;
+}
+
+
+/* =========================
+   PROJECT
+========================= */
+
+#project {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+#project > h1 {
+    grid-column: 1 / -1;
+}
+
+#project > div {
+    padding: 28px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s ease;
+}
+
+#project > div:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--primary);
+}
+
+#project h2 {
+    margin-bottom: 18px;
+
+    color: var(--text);
+
+    font-size: 22px;
+}
+
+#project ul {
+    padding-left: 20px;
+}
+
+#project li {
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+}
+
+#project li::marker {
+    color: var(--primary);
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+#contact > h1 {
+    grid-column: 1 / -1;
+}
+
+#contact form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 16px;
+
+    padding: 30px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    justify-content: center;
+    align-items: center;
+}
+
+#contact label {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#contact input,
+#contact select,
+#contact textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    outline: none;
+
+    background-color: var(--background);
+    color: var(--text);
+
+    font-family: inherit;
+}
+
+#contact input:focus,
+#contact select:focus,
+#contact textarea:focus {
+    border-color: var(--primary);
+}
+
+#contact textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+#contact .checkbox-item {
+    display: flex;
+    gap: 8px;
+    justify-content: left;
+    width: auto;
+}
+
+#contact .checkbox-item input {
+    width: auto;
+}
+
+#contact .checkbox-items {
+    display: flex;
+    gap: 24px;
+    justify-content: left;
+}
+
+/* Make larger form elements span both columns */
+
+#contact textarea,
+#contact button {
+    grid-column: 1 / -1;
+}
+
+#contact button {
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--primary);
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#contact button:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+#contact > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    list-style: none;
+}
+
+#contact > ul a {
+    display: block;
+
+    padding: 14px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background-color: var(--surface);
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+#contact > ul a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav form {
+        display: none;
+    }
+
+    main {
+        padding-top: 150px;
+    }
+
+    #education,
+    #project,
+    #contact {
+        grid-template-columns: 1fr;
+    }
+
+    #contact > h1 {
+        grid-column: auto;
+    }
+
+    #contact form {
+        grid-template-columns: 1fr;
+    }
+
+    #contact textarea,
+    #contact button {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 500px) {
+
+    main {
+        width: 92%;
+    }
+
+    #hero h1 {
+        font-size: 42px;
+    }
+
+    #hero h2 {
+        font-size: 20px;
+    }
+
+    #hero p {
+        font-size: 16px;
+    }
+
+    #experience th,
+    #experience td {
+        padding: 12px;
+    }
+}
